@@ -8,17 +8,17 @@ import { handleSignin } from './controllers/signin.js'
 import { handleProfile } from './controllers/profile.js'
 import { handleApiCall, handleImage } from './controllers/image.js'
 
+import { config } from "dotenv";
+config()
+
 const app = express()
 const PORT = 4000
  
 const db = knex({
     client: 'pg',
     connection: {
-      host : '127.0.0.1', 
-      port: 5432, 
-      user : 'postgres', 
-      password : 'postgres', 
-      database : 'smart-brain' 
+      connectionString: process.env.DB_STRING,
+      ssl: true
     }
 })
 
