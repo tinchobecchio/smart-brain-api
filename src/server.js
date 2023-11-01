@@ -12,7 +12,7 @@ import { config } from "dotenv";
 config()
 
 const app = express()
-const PORT = 4000
+const PORT = process.env.PORT || 4000
  
 const db = knex({
     client: 'pg',
